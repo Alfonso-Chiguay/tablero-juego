@@ -53,7 +53,9 @@ while finDelJuego == False:
 
     if len(game["tablero"].getEnemigos()) == 0 and player.getPosicion() == game["tablero"].getLimites():
         os.system('cls')
+        
         muertes= 5-player.getMuertes()
+        
         mensaje="LO CONSEGUISTE!\n\n===============================\nSolo moriste {0} veces".format(muertes)
         if muertes == 0:
             mensaje+="\nEstas al nivel de los Dioses!!!!"
@@ -65,6 +67,8 @@ while finDelJuego == False:
             mensaje+="\nSi estuvieras en una guerra, no me sorprendería que no regresaras a casa"
         elif muertes == 4:
             mensaje+="\nAl menos lo intentaste, pero intentarlo no es suficiente"
+        print(mensaje)    
+        input("Presione [ENTER] para terminar. . .")
 
         finDelJuego = True
     elif player.getPosicion() == game["tablero"].getLimites() and len(game["tablero"].getEnemigos()) > 0:
