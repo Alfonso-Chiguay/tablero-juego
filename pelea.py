@@ -27,7 +27,7 @@ def comenzarPelea(jugador, enemigo):
             mensaje+="Has atacado y le quitaste {0} de vida\n".format(ataque)
             enemigo.quitarVida(ataque)
             if not enemigo.isVivo():
-                mensaje+="Lo has derrotado\n"
+                mensaje+="Lo has derrotado!\n[ENTER] para continuar al tablero"
                 jugador.enemigoMatado()
                 pos = jugador.getPosicion()
                 ganaJugador = True
@@ -45,7 +45,7 @@ def comenzarPelea(jugador, enemigo):
             mensaje+="Te han atacado y te hicieron {0} de daño\n".format(ataque)
             jugador.quitarVida(ataque)
             if not jugador.isVivo():
-                mensaje+="Te han debilitado\n"                
+                mensaje+="Te han debilitado\n[ENTER] para continuar al tablero"                
                 os.system('cls')
                 portada(jugador,enemigo)
                 muerto = True
@@ -55,7 +55,8 @@ def comenzarPelea(jugador, enemigo):
         print(mensaje)   
         if muerto == True:
             jugador.revivir()   
-        input()
+
+        input("[ENTER] para siguiente turno de ataques. . .")
     return ganaJugador
 def portada(jugador, enemigo):
     print("Vida jugador: {0}".format(jugador.showVida()))
